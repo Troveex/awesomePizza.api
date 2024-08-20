@@ -1,18 +1,15 @@
 package com.awesomepizza.api.dto;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
-public class LookupDto {
+public class PizzaDto extends  LookupDto{
     
     @Setter
     @Getter
-    public String code;
+    public String name;
     
-    @Setter
     @Getter
-    public String description;
-
-    public LookupDto(){}
+    @Setter
+    public double price;
 }

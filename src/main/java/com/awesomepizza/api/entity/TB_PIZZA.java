@@ -4,19 +4,21 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
-@Table(name = "TB_STATUS")
-public class TB_STATUS {
+@Table(name = "TB_PIZZA")
+public class TB_PIZZA {
 
-    public TB_STATUS() {}
+    public TB_PIZZA() {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private long id;
+    private long id_pizza;
 
     @Setter
     @Getter
@@ -24,10 +26,17 @@ public class TB_STATUS {
 
     @Setter
     @Getter
-    private String description;
+    private String name;
 
-    @OneToMany(mappedBy = "status") // Questo è corretto per la parte inversa di una ManyToOne
     @Setter
     @Getter
-    private List<TB_ORDER> order = new ArrayList<>();
+    private String description;
+
+    @Setter
+    @Getter
+    private double price;
+
+    @OneToMany(mappedBy = "pizza", cascade = CascadeType.ALL)
+    private List<TB_ORDER_PIZZA> orders;
+    
 }

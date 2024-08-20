@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/v1/lookups")
+@RequestMapping("/api/v1/lookup")
 public class LookupController {
 
     @Autowired
@@ -26,11 +26,5 @@ public class LookupController {
         List<LookupDto> lookupDto = lookupService.getStatus();
         return ResponseEntity.ok(lookupDto);
     }
-
-    @GetMapping(value = "/getPizzas")
-    public List<LookupDto> getPizzas() {
-
-        List<LookupDto> lookupDtos = new ArrayList<>();
-        return lookupDtos;
-    }
+    
 }
