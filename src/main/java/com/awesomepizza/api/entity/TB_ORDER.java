@@ -46,6 +46,10 @@ public class TB_ORDER {
     @Setter
     @Getter
     private LocalDateTime creation_date;
+    
+    @Getter
+    @Setter
+    private String creation_user;
 
     @Setter
     @Getter 

@@ -1,6 +1,8 @@
 package com.awesomepizza.api.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "TB_ORDER_PIZZA")
@@ -14,9 +16,13 @@ public class TB_ORDER_PIZZA {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
+    @Getter
+    @Setter
     private TB_ORDER order;
 
     @ManyToOne
     @JoinColumn(name = "pizza_id")
+    @Getter
+    @Setter
     private TB_PIZZA pizza;
 }

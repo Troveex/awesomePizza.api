@@ -15,6 +15,7 @@ public class OrderMapper {
         order.setStatus(tbOrder.getStatus().getCode());
         order.setDeleted(tbOrder.isDeleted());
         order.setCreationDate(tbOrder.getCreation_date());
+        order.setCreationUser(tbOrder.getCreation_user());
         order.setDeletionDate(tbOrder.getDeletion_date());
         order.setModificationDate(tbOrder.getModification_date());
         order.setPrice(tbOrder.getPrice());

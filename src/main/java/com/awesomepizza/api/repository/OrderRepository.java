@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface OrderRepository extends JpaRepository<TB_ORDER, Long> {
@@ -15,4 +16,6 @@ public interface OrderRepository extends JpaRepository<TB_ORDER, Long> {
 
     @Query("SELECT SUM(P.price) FROM TB_PIZZA P JOIN TB_ORDER_PIZZA OP ON P.id_pizza = OP.pizza.id_pizza JOIN TB_ORDER O ON O.id = OP.order.id WHERE O.code = :orderCode")
     Double totalPriceOrder(@Param("orderCode") UUID orderCode);
+    
+    Optional<TB_ORDER> findByCode(UUID code);
 }

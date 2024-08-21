@@ -1,7 +1,9 @@
 package com.awesomepizza.api.controller;
 
 import com.awesomepizza.api.dto.OrderDto;
+import com.awesomepizza.api.dto.ResponseDto;
 import com.awesomepizza.api.dto.request.OrderCreateRequest;
+import com.awesomepizza.api.dto.request.OrderUpdateRequest;
 import com.awesomepizza.api.dto.response.OrderCreateResponse;
 import com.awesomepizza.api.dto.response.OrderSearchResponse;
 import com.awesomepizza.api.services.LookupService;
@@ -30,6 +32,12 @@ public class OrderController {
     @PostMapping(value = "/create")
     public ResponseEntity<OrderCreateResponse> create(@RequestBody OrderCreateRequest orderCreateRequest) {
         OrderCreateResponse result = orderService.create(orderCreateRequest);
+        return ResponseEntity.ok(result);
+    }
+
+    @PutMapping(value = "/update-status")
+    public ResponseEntity<ResponseDto> updateStatus(@RequestBody OrderUpdateRequest orderUpdateRequest) {
+        ResponseDto result = orderService.updateStatus(orderUpdateRequest);
         return ResponseEntity.ok(result);
     }
     

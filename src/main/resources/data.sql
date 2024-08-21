@@ -6,8 +6,8 @@ INSERT INTO TB_STATUS (code,description) VALUES ('COM', 'Completed');
 INSERT INTO TB_STATUS (code,description) VALUES ('DEL', 'Deleted');
 
 --INSERT ORDERS
-INSERT INTO TB_ORDER (code, status_id, creation_date, deleted, deletion_date, modification_date, price) VALUES ( 'f8c3de3d-1fea-4d7c-a8b0-29f63c4c3454',1,'2024-08-20 10:30:00', FALSE, NULL, NULL,10.00);
-INSERT INTO TB_ORDER (code, status_id, creation_date, deleted, deletion_date, modification_date, price) VALUES ( '018b2f19-e79e-7d6a-a56d-29feb6211b04',1,'2024-08-20 15:30:00', FALSE, NULL, NULL,30.00);
+INSERT INTO TB_ORDER (code, status_id, creation_date,creation_user, deleted, deletion_date, modification_date, price) VALUES ( 'f8c3de3d-1fea-4d7c-a8b0-29f63c4c3454',1,'2024-08-20 10:30:00','User 1', FALSE, NULL, NULL,10.00);
+INSERT INTO TB_ORDER (code, status_id, creation_date,creation_user, deleted, deletion_date, modification_date, price) VALUES ( '018b2f19-e79e-7d6a-a56d-29feb6211b04',1,'2024-08-20 15:30:00','User 2', FALSE, NULL, NULL,30.00);
 
 
 --INSERT PIZZAS

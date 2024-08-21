@@ -32,6 +32,10 @@ public class OrderDto {
     @Setter
     @Getter
     public LocalDateTime creationDate;
+    
+    @Getter
+    @Setter
+    public String creationUser;
 
     @Setter
     @Getter
