@@ -21,6 +21,7 @@ public class LookupServiceImpl implements LookupService {
 
     @Autowired
     private LookupMapper lookupMapper;
+    
     @Autowired
     private PizzaRepository pizzaRepository;
 
