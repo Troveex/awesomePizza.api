@@ -7,4 +7,7 @@ import java.util.List;
 public interface LookupService  {
     
     public List<LookupDto> getStatus();
+
+    public List<LookupDto> getPizzas();
+
 }

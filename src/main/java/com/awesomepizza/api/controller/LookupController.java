@@ -26,5 +26,11 @@ public class LookupController {
         List<LookupDto> lookupDto = lookupService.getStatus();
         return ResponseEntity.ok(lookupDto);
     }
-    
+
+    @GetMapping(value = "/getPizzas")
+    public ResponseEntity<List<LookupDto>> getPizzas() {
+
+        List<LookupDto> lookupDto = lookupService.getPizzas();
+        return ResponseEntity.ok(lookupDto);
+    }
 }

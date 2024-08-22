@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin("*")
@@ -29,6 +30,12 @@ public class OrderController {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping(value = "/get")
+    public ResponseEntity<OrderDto> get(@RequestParam UUID code) {
+        OrderDto result = orderService.get(code);
+        return ResponseEntity.ok(result);
+    }
+
     @PostMapping(value = "/create")
     public ResponseEntity<OrderCreateResponse> create(@RequestBody OrderCreateRequest orderCreateRequest) {
         OrderCreateResponse result = orderService.create(orderCreateRequest);
@@ -40,5 +47,10 @@ public class OrderController {
         ResponseDto result = orderService.updateStatus(orderUpdateRequest);
         return ResponseEntity.ok(result);
     }
-    
+
+    @DeleteMapping(value = "/delete")
+    public ResponseEntity<ResponseDto> delete(@RequestParam UUID code) {
+        ResponseDto result = orderService.delete(code);
+        return ResponseEntity.ok(result);
+    }
 }

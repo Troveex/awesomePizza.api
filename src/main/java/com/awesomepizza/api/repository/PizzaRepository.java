@@ -16,4 +16,5 @@ public interface PizzaRepository extends JpaRepository<TB_PIZZA, Long> {
 
     //@Query("SELECT P FROM TB_PIZZA P  WHERE P.code = :code")
     Optional<TB_PIZZA> findByCode(String code);
+
 }

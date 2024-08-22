@@ -22,6 +22,7 @@ import com.awesomepizza.api.utils.constant.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.plaf.synth.Region;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -158,7 +159,49 @@ public class OrderServiceImpl implements OrderService {
       return new ResponseDto("Order updated successfully");
     }
     
+    @Override
+    public ResponseDto delete (UUID code){
+        
+        if(code == null) {
+            throw new IllegalArgumentException("Code not valid");
+        }
+
+        Optional<TB_ORDER> tbOrder = orderRepository.findByCode(code);
+        if(tbOrder.isEmpty()) {
+            throw new IllegalArgumentException("Order not found");
+        }
+
+        Optional<TB_STATUS> tbStatus = statusRepository.findByCode(Constant.StatusPizza.DELETED);
+        if(tbStatus.isEmpty()) {
+            throw new IllegalArgumentException("Status not valid");
+        }
+        
+        tbOrder.get().setDeleted(true);
+        tbOrder.get().setDeletion_date(LocalDateTime.now());
+        tbOrder.get().setStatus(tbStatus.get());
+
+        orderRepository.save(tbOrder.get());
+        
+        return new ResponseDto("Order deleted successfully");
+    }
+
+    @Override
+    public OrderDto get (UUID code){
+        
+        if(code == null) {
+            throw new IllegalArgumentException("Code not valid");
+        }
+        
+        Optional<TB_ORDER> tbOrder = orderRepository.findByCode(code);
+        
+        if(tbOrder.isEmpty()) {
+            throw new IllegalArgumentException("Order not found");
+        }
+        
+        return orderMapper.MapEntityToDTO(tbOrder.get());
+    }
     
+    //Region private method
     private static boolean checkStatusOrder(String status, String newStatus){
         
         if(status.equals(Constant.StatusPizza.BOOKED) && newStatus.equals(Constant.StatusPizza.IN_PROGRESS)) {
@@ -174,5 +217,6 @@ public class OrderServiceImpl implements OrderService {
         }
         return false;
     }
+    //end region
 }
 

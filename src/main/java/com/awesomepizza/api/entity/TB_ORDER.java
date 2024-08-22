@@ -58,5 +58,7 @@ public class TB_ORDER {
     private TB_STATUS status;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @Getter
+    @Setter
     private List<TB_ORDER_PIZZA> pizzas;
 }
