@@ -1,6 +1,5 @@
 package com.awesomepizza.api.controller;
 
-import com.awesomepizza.api.dto.CustomerDto;
 import com.awesomepizza.api.dto.response.CustomerSearchResponse;
 import com.awesomepizza.api.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

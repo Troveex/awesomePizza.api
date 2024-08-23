@@ -1,11 +1,8 @@
 package com.awesomepizza.api.services.impl;
 
-import com.awesomepizza.api.dto.LookupDto;
 import com.awesomepizza.api.dto.PizzaDto;
-import com.awesomepizza.api.dto.response.OrderSearchResponse;
 import com.awesomepizza.api.dto.response.PizzaSearchResponse;
 import com.awesomepizza.api.entity.TB_PIZZA;
-import com.awesomepizza.api.entity.TB_STATUS;
 import com.awesomepizza.api.mapper.PizzaMapper;
 import com.awesomepizza.api.repository.PizzaRepository;
 import com.awesomepizza.api.services.PizzaService;
